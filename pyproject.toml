@@ -22,7 +22,32 @@ requires-python = ">=3.11"
 [project.optional-dependencies]
 dev = ["black", "bumpver", "pytest", "mypy", "types-requests"]
 
+[tool.setuptools]
+package-dir = {"" = "src"}
+
 [tool.mypy]
 python_version = '3.11'
+mypy_path = "src"
 packages = "microscopesoftwareautomation"
 strict = true
+
+[tool.black]
+line-length = 88
+target-version = ['py310', 'py311']
+
+[tool.bumpver]
+current_version = "0.0.1"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"',
+]
+"src/microscopesoftwareautomation/version.py" = [
+    "{version}"
+]
