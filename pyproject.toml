@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "microscopesoftwareautomation"
+version = "0.0.1"
+description = "Automate Microscopy Software"
+readme = "README.md"
+authors = [{ name = "Rolf Harkes", email = "r.harkes@nki.nl" }]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["Andor", "Fusion"]
+dependencies = [
+    "requests",
+]
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "pytest", "mypy", "types-requests"]
+
+[tool.mypy]
+python_version = '3.11'
+packages = "microscopesoftwareautomation"
+strict = true
